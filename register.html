@@ -2,15 +2,17 @@
 
 {% block content %}
 
+<link rel="stylesheet" href="../卒業制作/register.css">
+
 <div>
 
-<form action="/register" method="post">
-  名前：<input type="text" name="name"><br>
-  パスワード：<input type="password" name="password"><br>
-  <input type="submit" name="save" value="登録">
-</form>
+  <form action="/register" method="post">
+    名前：<input type="text" name="name"><br>
+    パスワード：<input type="password" name="password"><br>
+    <input type="submit" name="save" value="登録">
+  </form>
 
-<a href="/login">登録されている方はこちら</a>
+  <!-- <a href="/login">登録されている方はこちら</a> -->
 
 </div>
 
