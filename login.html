@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
+<link rel="stylesheet" href="../卒業制作/register.css">
+<div>
+  <p class="logo"></p>
+  <img src="" alt="画像">
 
-<form action="/login" method="post">
-  名前：<input type="text" name="name"><br>
-  パスワード：<input type="password" name="password"><br>
-  <input type="submit" value="ログイン">
-</form>
+  <form action="/login" method="post">
+    <input class="name" type="text" name="name" placeholder="なまえ"><br>
+    <input class="pass" type="password" name="password" placeholder="パスワード"><br>
+    <input class="btn" type="submit" value="ログイン">
+  </form>
+</div>
 
 {% endblock %}

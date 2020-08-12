@@ -1,0 +1,50 @@
+div {
+    padding-bottom: 71pt;
+    width: 375pt;
+    background-color: #3D404D;
+}
+
+.logo {
+    width: 375pt;
+    height: 71pt;
+    color: #efffef;
+}
+
+img {
+    width: 375pt;
+    height: 400pt;
+}
+
+input {
+    border-radius: 32pt;
+
+}
+
+.name {
+    border-color: #3D404D;
+    width: 306pt;
+    height: 45pt;
+    display: block;
+    margin: auto;
+}
+
+.pass {
+    border-color: #3D404D;
+    width: 306pt;
+    height: 45pt;
+    display: block;
+    margin: auto;
+}
+
+
+form {
+    border: #3D404D;
+    text-align: center;
+}
+
+.btn {
+    border-color: #3D404D;
+    width: 205pt;
+    height: 61pt;
+    background-color: #e79578;
+}
