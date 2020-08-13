@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="../-/register.css">
+
+<div>
+
+  <p class="logo"></p>
+
+  <img src="" alt="画像">
+
+  <form action="/register" method="post">
+    <input class="name" type="text" name="name" placeholder="なまえ"><br>
+    <input class="pass" type="text" name="password" placeholder="パスワード"><br>
+    <input class="btn" type="submit" name="save" value="登録">
+  </form>
+
+  <!-- <a href="/login">登録されている方はこちら</a> -->
+
+</div>
+
+{% endblock %}
