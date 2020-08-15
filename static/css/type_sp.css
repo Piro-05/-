@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+html {
+    overflow-y: scroll;
+    /* IEへの対応 http://www.htmq.com/style/overflow-y.shtml */
+    /*Internet Explorerが独自に追加したプロパティ*/
+    /*画面に収まりきれなかったときにスクロールして表示することを許可するか否か*/
+}
+
+/* リセットおまじない--------------------------------- */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    outline: none;
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    border: 0px;
+    vertical-align: bottom;
+}
+
+/* --------------------------------------------------- */
+
+header {
+    height: 71px;
+    background-color: #3D404D;
+}
+
+.main {
+    height: 505px;
+    background-color: #3D404D;
+}
+
+.top {
+    height: 210px;
+    position: relative;
+}
+
+.top h1 {
+    font-family: HGGothicM;
+    font-weight: 100;
+    font-size: 24px;
+    text-align: center;
+    color: #EFEEF5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.content {
+    height: 342px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    /*左右中央揃え*/
+    align-items: center;
+}
+
+.btn {
+    background-color: #EFEEF5;
+    width: 316px;
+    height: 85px;
+    border-radius: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.btn p {
+    padding-top: 31px;
+}
+
+.atodekimeru {
+    background-color: rgba(205, 205, 207, 0);
+    border: dashed 2px #333;
+    border-color: #CDCDCF;
+    color: #CDCDCF;
+}
+
+footer {
+    width: 100vw;
+    height: 100vh;
+    background-color: #3D404D;
+    text-align: center;
+}
