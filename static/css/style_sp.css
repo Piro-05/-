@@ -15,6 +15,13 @@ a {
   margin: 0 auto;
 }
 
+
+.container h1 {
+  font-family: HGGothicM;
+  font-weight: 100;
+}
+
+
 .top-wrapper {
   padding: 180px 0 812px 0;
   background-color: #3D404D;
