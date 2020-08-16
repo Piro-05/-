@@ -107,3 +107,13 @@ footer {
     background-color: #3D404D;
     text-align: center;
 }
+
+button {
+    background-color: #EFEEF5;
+    width: 316px;
+    height: 85px;
+    border-radius: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    display: block;
+}
