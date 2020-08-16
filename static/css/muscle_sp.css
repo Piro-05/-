@@ -172,6 +172,7 @@ header {
     justify-content: center;
     /*左右中央揃え*/
     align-items: center;
+    margin-bottom: 38px;
 }
 
 .content {

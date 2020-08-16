@@ -1,3 +1,88 @@
+#wrapper nav {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  padding-top: 50px;
+  background: #CDCDCF;
+  font-size: 16px;
+  box-sizing: border-box;
+  z-index: 2;
+  opacity: 0.95;
+}
+
+#wrapper nav ul li {
+  display: block;
+  padding: 20px 28px
+}
+
+#wrapper nav ul li a {
+  text-decoration: none;
+  color: #3D404D;
+}
+
+#wrapper .btn-gnavi {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 24px;
+  z-index: 3;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-transition: all 400ms;
+  transition: all 400ms
+}
+
+#wrapper .btn-gnavi span {
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background: #3D404D;
+  border-radius: 10px;
+  -webkit-transition: all 400ms;
+  transition: all 400ms
+}
+
+#wrapper .btn-gnavi span:nth-child(1) {
+  top: 0
+}
+
+#wrapper .btn-gnavi span:nth-child(2) {
+  top: 10px
+}
+
+#wrapper .btn-gnavi span:nth-child(3) {
+  top: 20px
+}
+
+#wrapper .btn-gnavi.open span {
+  background: #3D404D
+}
+
+#wrapper .btn-gnavi.open span {
+  width: 24px;
+}
+
+#wrapper .contents section p {
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  line-height: 1.4;
+  font-size: 20px;
+  color: #fff;
+}
+
+#wrapper .contents section:nth-child(odd) p {
+  left: 10%
+}
+
+#wrapper .contents section:nth-child(even) p {
+  right: 10%
+}
+
+
 body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN";
@@ -74,6 +159,7 @@ a {
   justify-content: center;
   /*左右中央揃え*/
   align-items: center;
+
 }
 
 .btn-wrapper {
@@ -93,42 +179,17 @@ a {
 }
 
 header {
-  height: 65px;
+  height: 71px;
   width: 100%;
   background-color: #EFEEF5;
   /* positionプロパティをfixedに、topを0に指定してください */
-  position: fixed;
+  position: fixe;
   top: 0px;
   /* z-indexを10に指定してください */
   z-index: 10;
 }
 
-.logo {
-  width: 124px;
-  margin-top: 20px;
-  margin-left: 440px;
-}
 
-.header-left {
-  float: left;
-}
-
-.hum_menu {
-  float: right;
-  background-color: rgba(255, 255, 255, 0.3);
-  transition: all 0.5s;
-}
-
-.header-right:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.header-right a {
-  line-height: 65px;
-  padding: 0 25px;
-  color: white;
-  display: block;
-}
 
 /*   
   .lesson-wrapper {
