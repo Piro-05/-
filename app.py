@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 # splite3をimportする
 import sqlite3
@@ -13,7 +14,7 @@ from datetime import datetime
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('bbs.html')
 
 
 # GET  /register => 登録画面を表示
@@ -39,14 +40,8 @@ def register():
         c.execute("insert into user values(null,?,?,'no_img.png')", (name,password))
         conn.commit()
         conn.close()
-        # 初期設定へ移管　/syokisetei
         return redirect('/login')
 
-# GET  /syokisetei => 初期設定画面を表示
-# POST /syokisetei => 初期設定の処理をする
-@app.route("/syokisetei", methods=["GET", "POST"])
-def syokisetei():
-    
 
 # GET  /login => ログイン画面を表示
 # POST /login => ログイン処理をする
@@ -77,7 +72,20 @@ def login():
             return render_template("login.html")
         else:
             session['user_id'] = user_id[0]
-            return redirect("/bbs")
+            return redirect("/typ")
+
+# GET  /type => type画面を表示
+# POST /type => type処理をする
+@app.route('/typ')
+def typ():
+    return render_template('type.html')
+
+@app.route('/bbs', methods=['GET', 'POST'])
+def test():
+    if request.method == 'POST':
+        res = render_template('bbs.html')
+
+    return res
 
 
 @app.route("/logout")
@@ -114,85 +122,85 @@ def bbs():
 
 
 
-@app.route('/add', methods=["POST"])
-def add():
-    user_id = session['user_id']
+# @app.route('/add', methods=["POST"])
+# def add():
+#     user_id = session['user_id']
 
-    # 課題2の答えはここ 現在時刻を取得
-    time = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+#     # 課題2の答えはここ 現在時刻を取得
+#     time = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
 
-    # POSTアクセスならDBに登録する
-    # フォームから入力されたアイテム名の取得(Python2ならrequest.form.getを使う)
-    comment = request.form.get("comment")
-    conn = sqlite3.connect('service.db')
-    c = conn.cursor()
-    # 現在の最大ID取得(fetchoneの戻り値はタプル)
+#     # POSTアクセスならDBに登録する
+#     # フォームから入力されたアイテム名の取得(Python2ならrequest.form.getを使う)
+#     comment = request.form.get("comment")
+#     conn = sqlite3.connect('service.db')
+#     c = conn.cursor()
+#     # 現在の最大ID取得(fetchoneの戻り値はタプル)
 
-    # 課題1の答えはここ null,?,?,0の0はdel_flagのデフォルト値
-    # 課題2の答えはここ timeを新たにinsert
-    c.execute("insert into bbs values(null,?,?,0,?)", (user_id, comment,time))
-    conn.commit()
-    conn.close()
-    return redirect('/bbs')
+#     # 課題1の答えはここ null,?,?,0の0はdel_flagのデフォルト値
+#     # 課題2の答えはここ timeを新たにinsert
+#     c.execute("insert into bbs values(null,?,?,0,?)", (user_id, comment,time))
+#     conn.commit()
+#     conn.close()
+#     return redirect('/bbs')
 
-@app.route('/edit/<int:id>')
-def edit(id):
-    if 'user_id' in session :
-        conn = sqlite3.connect('service.db')
-        c = conn.cursor()
-        c.execute("select comment from bbs where id = ?", (id,) )
-        comment = c.fetchone()
-        conn.close()
+# @app.route('/edit/<int:id>')
+# def edit(id):
+#     if 'user_id' in session :
+#         conn = sqlite3.connect('service.db')
+#         c = conn.cursor()
+#         c.execute("select comment from bbs where id = ?", (id,) )
+#         comment = c.fetchone()
+#         conn.close()
 
-        if comment is not None:
-            # None に対しては インデクス指定できないので None 判定した後にインデックスを指定
-            comment = comment[0] # "りんご" ○   ("りんご",) ☓
-            # fetchone()で取り出したtupleに 0 を指定することで テキストだけをとりだす
-        else:
-            return "アイテムがありません" # 指定したIDの name がなければときの対処
+#         if comment is not None:
+#             # None に対しては インデクス指定できないので None 判定した後にインデックスを指定
+#             comment = comment[0] # "りんご" ○   ("りんご",) ☓
+#             # fetchone()で取り出したtupleに 0 を指定することで テキストだけをとりだす
+#         else:
+#             return "アイテムがありません" # 指定したIDの name がなければときの対処
 
-        item = { "id":id, "comment":comment }
+#         item = { "id":id, "comment":comment }
 
-        return render_template("edit.html", comment=item)
-    else:
-        return redirect("/login")
+#         return render_template("edit.html", comment=item)
+#     else:
+#         return redirect("/login")
 
 
-# /add ではPOSTを使ったので /edit ではあえてGETを使う
-@app.route("/edit")
-def update_item():
-    if 'user_id' in session :
-        # ブラウザから送られてきたデータを取得
-        item_id = request.args.get("item_id") # id
-        print(item_id)
-        item_id = int(item_id) # ブラウザから送られてきたのは文字列なので整数に変換する
-        comment = request.args.get("comment") # 編集されたテキストを取得する
+# # /add ではPOSTを使ったので /edit ではあえてGETを使う
+# @app.route("/edit")
+# def update_item():
+#     if 'user_id' in session :
+#         # ブラウザから送られてきたデータを取得
+#         item_id = request.args.get("item_id") # id
+#         print(item_id)
+#         item_id = int(item_id) # ブラウザから送られてきたのは文字列なので整数に変換する
+#         comment = request.args.get("comment") # 編集されたテキストを取得する
 
-        # 既にあるデータベースのデータを送られてきたデータに更新
-        conn = sqlite3.connect('service.db')
-        c = conn.cursor()
-        c.execute("update bbs set comment = ? where id = ?",(comment,item_id))
-        conn.commit()
-        conn.close()
+#         # 既にあるデータベースのデータを送られてきたデータに更新
+#         conn = sqlite3.connect('service.db')
+#         c = conn.cursor()
+#         c.execute("update bbs set comment = ? where id = ?",(comment,item_id))
+#         conn.commit()
+#         conn.close()
 
-        # アイテム一覧へリダイレクトさせる
-        return redirect("/bbs")
-    else:
-        return redirect("/login")
+#         # アイテム一覧へリダイレクトさせる
+#         return redirect("/bbs")
+#     else:
+#         return redirect("/login")
 
-@app.route('/del' , methods=["POST"])
-def del_task():
-    id = request.form.get("comment_id")
-    id = int(id)
-    conn = sqlite3.connect('service.db')
-    c = conn.cursor()
-    # 指定されたitem_idを元にDBデータを削除せずにdel_flagを1にして一覧からは表示しないようにする
-    # 課題1の答えはここ del_flagを1にupdateする
-    c.execute("update bbs set del_flag = 1 where id=?", (id,))
-    conn.commit()
-    conn.close()
-    # 処理終了後に一覧画面に戻す
-    return redirect("/bbs")
+# @app.route('/del' , methods=["POST"])
+# def del_task():
+#     id = request.form.get("comment_id")
+#     id = int(id)
+#     conn = sqlite3.connect('service.db')
+#     c = conn.cursor()
+#     # 指定されたitem_idを元にDBデータを削除せずにdel_flagを1にして一覧からは表示しないようにする
+#     # 課題1の答えはここ del_flagを1にupdateする
+#     c.execute("update bbs set del_flag = 1 where id=?", (id,))
+#     conn.commit()
+#     conn.close()
+#     # 処理終了後に一覧画面に戻す
+#     return redirect("/bbs")
 
 #課題4の答えはここ
 @app.route('/upload', methods=["POST"])

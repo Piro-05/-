@@ -1,17 +1,29 @@
-div {
-    padding-bottom: 71pt;
+header {
     background-color: #3D404D;
+    height: 71px;
 }
 
+
+body {
+    background-color: #3d404D;
+}
+
+
+
+div {
+    padding-bottom: 71px;
+}
+
+/*
 .logo {
     width: 375pt;
     height: 71pt;
     color: #efffef;
 }
+*/
 
-/*
+
 .content {
-    width: 60%;
     background-color: #3D404D;
     display: flex;
     flex-direction: column;
@@ -27,7 +39,6 @@ img {
 
 input {
     border-radius: 32pt;
-
 }
 
 .name {

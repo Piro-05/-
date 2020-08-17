@@ -43,15 +43,101 @@ img {
 }
 
 /* --------------------------------------------------- */
+
+#wrapper nav {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    padding-top: 50px;
+    background: #CDCDCF;
+    font-size: 16px;
+    box-sizing: border-box;
+    z-index: 2;
+    opacity: 0.95;
+}
+
+#wrapper nav ul li {
+    display: block;
+    padding: 20px 28px
+}
+
+#wrapper nav ul li a {
+    text-decoration: none;
+    color: #3D404D;
+}
+
+#wrapper .btn-gnavi {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 24px;
+    z-index: 3;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-transition: all 400ms;
+    transition: all 400ms
+}
+
+#wrapper .btn-gnavi span {
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background: #3D404D;
+    border-radius: 10px;
+    -webkit-transition: all 400ms;
+    transition: all 400ms
+}
+
+#wrapper .btn-gnavi span:nth-child(1) {
+    top: 0
+}
+
+#wrapper .btn-gnavi span:nth-child(2) {
+    top: 10px
+}
+
+#wrapper .btn-gnavi span:nth-child(3) {
+    top: 20px
+}
+
+#wrapper .btn-gnavi.open span {
+    background: #3D404D
+}
+
+#wrapper .btn-gnavi.open span {
+    width: 24px;
+}
+
+#wrapper .contents section p {
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    line-height: 1.4;
+    font-size: 20px;
+    color: #fff;
+}
+
+#wrapper .contents section:nth-child(odd) p {
+    left: 10%
+}
+
+#wrapper .contents section:nth-child(even) p {
+    right: 10%
+}
+
+
 body {
     background-color: #3d404D;
 }
 
 header {
-    /*ハンバーガメニュー*/
     background-color: #EFEEF5;
     height: 71px;
 }
+
 
 .main {
     /*height: 505px;*/
@@ -87,6 +173,7 @@ header {
     justify-content: center;
     /*左右中央揃え*/
     align-items: center;
+    margin-bottom: 38px;
 }
 
 .content {
@@ -130,13 +217,14 @@ footer {
 
 .backhome {
     border-radius: 28px;
-    background-color: #E79578;
+    background-color: #CDCDCF;
     width: 205px;
     height: 61px;
     display: flex;
     justify-content: center;
     /*左右中央揃え*/
     align-items: center;
+    margin-top: 30px;
 }
 
 .backhome p {
