@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../static/css/otameshi.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!--media="screen and ( max-width:750px )"-->
+  <title>筋トレアプリ</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="../js/hum_menu.js"></script>
+</head>
+
+<body>
+  <header></header>
+  <div id="wrapper">
+
+    <p class="btn-gnavi">
+      <span></span>
+      <span></span>
+      <span></span>
+    </p>
+    <nav id="global-navi">
+      <ul class="menu">
+        <li><a href="">プロフィールを編集</a></li>
+        <li><a href="">毎日のがんばり</a></li>
+        <li><a href="">過去の筋トレ</a></li>
+        <li><a href="">お問い合わせ</a></li>
+        <li><a href="">ログアウト</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!--ヘッダのした部分-->
+  <div class="main">
+    <div class="top">
+      <h1>今日のメニュー</h1>
+    </div>
+    <!--画像と説明-->
+    <div class="content">
+      <form action="/eatn" method="POST">
+      <button name="post_button" class="btn eat">
+        食事
+      </button>
+      </form>
+      <form action="/musclen" method="POST">
+      <button name="post_button" class="btn muscle">
+        筋トレ
+      </button>
+    </form>
+    </div>
+
+  </div>
+
+  <!--フッタの部分-->
+  <footer>
+    <form action="/bbs" method="POST">
+      <button name="post_button" class="btn complete">
+        達成
+      </button>
+    </form>
+  </footer>
+
+</body>
+
+</html>

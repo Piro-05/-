@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 # splite3をimportする
 import sqlite3
@@ -79,23 +80,23 @@ def login():
 def typ():
     return render_template('type.html')
 
-@app.route('/bbsn', methods=['GET', 'POST'])
+@app.route('/menum', methods=['GET', 'POST'])
 def muki():
     if request.method == 'POST':
-        res = render_template('bbsn.html')
+        res = render_template('menum.html')
 
     return res
 
-@app.route('/bbsm', methods=['GET', 'POST'])
+@app.route('/menun', methods=['GET', 'POST'])
 def natyu():
     if request.method == 'POST':
-        res = render_template('bbsm.html')
+        res = render_template('menun.html')
 
     return res
-@app.route('/bbsa', methods=['GET', 'POST'])
+@app.route('/menua', methods=['GET', 'POST'])
 def atode():
     if request.method == 'POST':
-        res = render_template('bbsa.html')
+        res = render_template('menua.html')
 
     return res
 
@@ -105,17 +106,45 @@ def logout():
     # ログアウト後はログインページにリダイレクトさせる
     return redirect("/login")
 
-@app.route('/eat', methods=['GET', 'POST'])
-def eat():
+@app.route('/eatm', methods=['GET', 'POST'])
+def eatm():
     if request.method == 'POST':
-        res = render_template('eatmenu.html')
+        res = render_template('eatmenum.html')
 
     return res
 
-@app.route('/muscle', methods=['GET', 'POST'])
-def muscle():
+@app.route('/musclem', methods=['GET', 'POST'])
+def musclem():
     if request.method == 'POST':
-        res = render_template('musclemenu.html')
+        res = render_template('musclemenum.html')
+
+    return res
+
+@app.route('/eatn', methods=['GET', 'POST'])
+def eatn():
+    if request.method == 'POST':
+        res = render_template('eatmenun.html')
+
+    return res
+
+@app.route('/musclen', methods=['GET', 'POST'])
+def musclen():
+    if request.method == 'POST':
+        res = render_template('musclemenun.html')
+
+    return res
+
+@app.route('/eata', methods=['GET', 'POST'])
+def eata():
+    if request.method == 'POST':
+        res = render_template('eatmenua.html')
+
+    return res
+
+@app.route('/musclea', methods=['GET', 'POST'])
+def musclea():
+    if request.method == 'POST':
+        res = render_template('musclemenua.html')
 
     return res
 

@@ -44,6 +44,10 @@ img {
 
 /* --------------------------------------------------- */
 
+body {
+    background-color: #3d404D;
+}
+
 header {
     height: 71px;
     background-color: #3D404D;
@@ -55,7 +59,7 @@ header {
 }
 
 .top {
-    height: 210px;
+    height: 170px;
     position: relative;
 }
 
@@ -90,11 +94,11 @@ header {
     display: block;
 }
 
-.btn p {
+.btn a {
     padding-top: 31px;
 }
 
-.atodekimeru {
+.atode {
     background-color: rgba(205, 205, 207, 0);
     border: dashed 2px #333;
     border-color: #CDCDCF;
@@ -103,7 +107,6 @@ header {
 
 footer {
     width: 100vw;
-    height: 100vh;
     background-color: #3D404D;
     text-align: center;
 }
@@ -117,3 +120,10 @@ button {
     margin-bottom: 30px;
     display: block;
 }
+
+/*
+.atode {
+    background-color: #3D404D;
+    color: #CDCDCF;
+}
+*/

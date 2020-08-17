@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/muscle_sp.css">
+    <!--media="screen and ( max-width:750px )"-->
+    <title>筋トレメニュー</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="../js/hum_menu.js"></script>
+
+</head>
+
+<body>
+    <!--ヘッダの部分-->
+    <header></header>
+    <div id="wrapper">
+
+        <p class="btn-gnavi">
+            <span></span>
+            <span></span>
+            <span></span>
+        </p>
+        <nav id="global-navi">
+            <ul class="menu">
+                <li><a href="">プロフィールを編集</a></li>
+                <li><a href="">毎日のがんばり</a></li>
+                <li><a href="">過去の筋トレ</a></li>
+                <li><a href="">お問い合わせ</a></li>
+                <li><a href="">ログアウト</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--ヘッダのした部分-->
+    <div class="main">
+        <div class="top">
+            <h1>今日の筋トレ</h1>
+        </div>
+        <!--画像と説明-->
+        <div class="chuuouzoroe">
+            <div class="content">
+                <!--SQLで動画をいれる-->
+                <img src="static/img/itomeshi.jpg" class="movie">
+                <!--SQLで筋トレ名をいれる-->
+                <div class="muscle">
+                    <p>スクワット</p>
+                </div>
+                <!--説明をいれる-->
+                <div class="explenation">
+                    <!--仮のテキストとしてスティーブジョブス名言集をぼっこんだ-->
+                    <p>デザインとは単にどのように見えるか、どのように感じるかということではない。どう機能するかだ。
+                        僕は宇宙をへこま せたい
+                        海軍に行くくらいなら、海賊になったほうがいい。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--フッタの部分-->
+    <footer>
+
+        <form action="/menun" method="POST">
+            <button name="post_button">
+                <p>戻る</p>
+            </button>
+            </form>
+    </footer>
+
+</body>
+
+</html>
