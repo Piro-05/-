@@ -169,13 +169,14 @@ header {
     align-items: center;
 }
 
-.content p {
+.content a {
     margin-top: 28px;
     font-size: 18px;
     font-family: HGGothicM;
     font-weight: 100;
     color: #3d404D;
     margin-bottom: 20px;
+    padding: 30px 0;
 }
 
 .btn {

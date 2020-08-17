@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../static/css/otameshi.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!--media="screen and ( max-width:750px )"-->
-    <title>メニュー</title>
+    <title>筋トレアプリ</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="../js/hum_menu.js"></script>
+
 
 </head>
 
@@ -36,25 +41,24 @@
             <h1>今日のメニュー</h1>
         </div>
         <!--画像と説明-->
-
         <div class="content">
-
             <a href="./eatmenu.html" class="btn eat">
-                <p>食事</p>
+                食事
             </a>
             <a href="./musclemenu.html" class="btn muscle">
-                <p>筋トレ</p>
+                筋トレ
             </a>
-
         </div>
 
     </div>
 
     <!--フッタの部分-->
     <footer>
-        <a href="＃" class="btn complete">
-            <p>達成</p>
-        </a>
+        <form action="/bbs" method="POST">
+            <button name="post_button" class="btn complete">
+                達成
+            </button>
+        </form>
     </footer>
 
 </body>
