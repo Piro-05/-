@@ -145,7 +145,6 @@ a {
 /* .twitter {
     background-color: #55acee;
   } */
-<<<<<<< HEAD
 
 .btn {
   /*padding: 33px 138px;*/
@@ -192,63 +191,6 @@ header {
 
 
 
-=======
-  
-  .btn {
-    padding: 33px 138px;
-    color:#3D404D;
-    display: inline-block;
-    /* opacity: 0.8; */
-    border-radius: 32px;
-    margin :31px;
-  }
-  
-  .btn:hover {
-    opacity: 1;
-  }
-  
-  /* .fa {
-    margin-right: 5px;
-  } */
-  
-  header {
-    height: 65px;
-    width: 100%;
-    background-color:#EFEEF5;
-    /* positionプロパティをfixedに、topを0に指定してください */
-    position:fixed;
-    top:0px;
-    /* z-indexを10に指定してください */
-    z-index:10;
-  }
-  
-  .logo {
-    width: 124px;
-    margin-top: 20px;
-    margin-left: 440px;
-  }
-  
-  .header-left {
-    float: left;
-  }
-  
-  .hum_menu{
-    float: right;
-    background-color: rgba(255, 255, 255, 0.3);
-    transition: all 0.5s;
-  }
-  
-  .header-right:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .header-right a {
-    line-height: 65px;
-    padding: 0 25px;
-    color: white;
-    display: block;
-  }
->>>>>>> dcb0c5fc2cac1a477dd389ee660bf84d6e36fdb6
 /*   
   .lesson-wrapper {
     height: 500px;
