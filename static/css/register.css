@@ -1,5 +1,6 @@
 div {
     padding-bottom: 71pt;
+    width: 375pt;
     background-color: #3D404D;
 }
 
@@ -9,20 +10,9 @@ div {
     color: #efffef;
 }
 
-/*
-.content {
-    width: 60%;
-    background-color: #3D404D;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 img {
     width: 375pt;
-    height: auto;
-    /*比を崩さずに表示*/
+    height: 400pt;
 }
 
 input {
