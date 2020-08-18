@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/css/muscle_sp.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/eat_sp.css">
     <!--media="screen and ( max-width:750px )"-->
-    <title>筋トレメニュー</title>
+    <title>食事メニュー</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="../js/hum_menu.js"></script>
+
 
 </head>
 
@@ -37,16 +38,16 @@
     <!--ヘッダのした部分-->
     <div class="main">
         <div class="top">
-            <h1>今日の筋トレ</h1>
+            <h1>今日の食事</h1>
         </div>
         <!--画像と説明-->
         <div class="chuuouzoroe">
             <div class="content">
-                <!--SQLで動画をいれる-->
-                <img src="../img/itomeshi.jpg" class="movie">
-                <!--SQLで筋トレ名をいれる-->
-                <div class="muscle">
-                    <p>スクワット</p>
+                <!--SQLで画像をいれる-->
+                <img src="static/img/itomeshi.jpg" class="image">
+                <!--SQLで食事名をいれる-->
+                <div class="gohan">
+                    <p>いとむらめし</p>
                 </div>
                 <!--説明をいれる-->
                 <div class="explenation">
@@ -63,9 +64,11 @@
 
     <!--フッタの部分-->
     <footer>
-        <a href="./menu.html" class="btn backhome">
-            <p>戻る</p>
-        </a>
+        <form action="/menun" method="POST">
+            <button name="post_button">
+                <p>戻る</p>
+            </button>
+            </form>
     </footer>
 
 </body>

@@ -14,7 +14,7 @@ from datetime import datetime
 
 @app.route('/')
 def index():
-    return render_template('bbs.html')
+    return render_template('type.html')
 
 
 # GET  /register => 登録画面を表示
@@ -24,7 +24,7 @@ def register():
     #  登録ページを表示させる
     if request.method == "GET":
         if 'user_id' in session :
-            return redirect ('/bbs')
+            return redirect ('/typ')
         else:
             return render_template("register.html")
 
@@ -49,7 +49,7 @@ def register():
 def login():
     if request.method == "GET":
         if 'user_id' in session :
-            return redirect("/bbs")
+            return redirect("/typ")
         else:
             return render_template("login.html")
     else:
@@ -80,13 +80,25 @@ def login():
 def typ():
     return render_template('type.html')
 
-@app.route('/bbs', methods=['GET', 'POST'])
-def test():
+@app.route('/menum', methods=['GET', 'POST'])
+def muki():
     if request.method == 'POST':
-        res = render_template('bbs.html')
+        res = render_template('menum.html')
 
     return res
 
+@app.route('/menun', methods=['GET', 'POST'])
+def natyu():
+    if request.method == 'POST':
+        res = render_template('menun.html')
+
+    return res
+@app.route('/menua', methods=['GET', 'POST'])
+def atode():
+    if request.method == 'POST':
+        res = render_template('menua.html')
+
+    return res
 
 @app.route("/logout")
 def logout():
@@ -94,33 +106,47 @@ def logout():
     # ログアウト後はログインページにリダイレクトさせる
     return redirect("/login")
 
+@app.route('/eatm', methods=['GET', 'POST'])
+def eatm():
+    if request.method == 'POST':
+        res = render_template('eatmenum.html')
 
-@app.route('/bbs')
-def bbs():
-    if 'user_id' in session :
-        user_id = session['user_id']
-        conn = sqlite3.connect('service.db')
-        c = conn.cursor()
-        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
-        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
-        c.execute("select name,prof_img from user where id = ?", (user_id,))
-        # fetchoneはタプル型
-        user_info = c.fetchone()
-        # user_infoの中身を確認
+    return res
 
-        # 課題1の答えはここ del_flagが0のものだけ表示する
-        # 課題2の答えはここ 保存されているtimeも表示する
-        c.execute("select id,comment,time from bbs where userid = ? and del_flag = 0 order by id", (user_id,))
-        comment_list = []
-        for row in c.fetchall():
-            comment_list.append({"id": row[0], "comment": row[1], "time":row[2]})
+@app.route('/musclem', methods=['GET', 'POST'])
+def musclem():
+    if request.method == 'POST':
+        res = render_template('musclemenum.html')
 
-        c.close()
-        return render_template('bbs.html' , user_info = user_info , comment_list = comment_list)
-    else:
-        return redirect("/login")
+    return res
 
+@app.route('/eatn', methods=['GET', 'POST'])
+def eatn():
+    if request.method == 'POST':
+        res = render_template('eatmenun.html')
 
+    return res
+
+@app.route('/musclen', methods=['GET', 'POST'])
+def musclen():
+    if request.method == 'POST':
+        res = render_template('musclemenun.html')
+
+    return res
+
+@app.route('/eata', methods=['GET', 'POST'])
+def eata():
+    if request.method == 'POST':
+        res = render_template('eatmenua.html')
+
+    return res
+
+@app.route('/musclea', methods=['GET', 'POST'])
+def musclea():
+    if request.method == 'POST':
+        res = render_template('musclemenua.html')
+
+    return res
 
 # @app.route('/add', methods=["POST"])
 # def add():
@@ -203,41 +229,41 @@ def bbs():
 #     return redirect("/bbs")
 
 #課題4の答えはここ
-@app.route('/upload', methods=["POST"])
-def do_upload():
-    # bbs.tplのinputタグ name="upload" をgetしてくる
-    upload = request.files['upload']
-    # uploadで取得したファイル名をlower()で全部小文字にして、ファイルの最後尾の拡張子が'.png', '.jpg', '.jpeg'ではない場合、returnさせる。
-    if not upload.filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-        return 'png,jpg,jpeg形式のファイルを選択してください'
+# @app.route('/upload', methods=["POST"])
+# def do_upload():
+#     # bbs.tplのinputタグ name="upload" をgetしてくる
+#     upload = request.files['upload']
+#     # uploadで取得したファイル名をlower()で全部小文字にして、ファイルの最後尾の拡張子が'.png', '.jpg', '.jpeg'ではない場合、returnさせる。
+#     if not upload.filename.lower().endswith(('.png', '.jpg', '.jpeg')):
+#         return 'png,jpg,jpeg形式のファイルを選択してください'
     
-    # 下の def get_save_path()関数を使用して "./static/img/" パスを戻り値として取得する。
-    save_path = get_save_path()
-    # パスが取得できているか確認
-    print(save_path)
-    # ファイルネームをfilename変数に代入
-    filename = upload.filename
-    # 画像ファイルを./static/imgフォルダに保存。 os.path.join()は、パスとファイル名をつないで返してくれます。
-    upload.save(os.path.join(save_path,filename))
-    # ファイル名が取れることを確認、あとで使うよ
-    print(filename)
+#     # 下の def get_save_path()関数を使用して "./static/img/" パスを戻り値として取得する。
+#     save_path = get_save_path()
+#     # パスが取得できているか確認
+#     print(save_path)
+#     # ファイルネームをfilename変数に代入
+#     filename = upload.filename
+#     # 画像ファイルを./static/imgフォルダに保存。 os.path.join()は、パスとファイル名をつないで返してくれます。
+#     upload.save(os.path.join(save_path,filename))
+#     # ファイル名が取れることを確認、あとで使うよ
+#     print(filename)
     
-    # アップロードしたユーザのIDを取得
-    user_id = session['user_id']
-    conn = sqlite3.connect('service.db')
-    c = conn.cursor()
-    # update文
-    # 上記の filename 変数ここで使うよ
-    c.execute("update user set prof_img = ? where id=?", (filename,user_id))
-    conn.commit()
-    conn.close()
+#     # アップロードしたユーザのIDを取得
+#     user_id = session['user_id']
+#     conn = sqlite3.connect('service.db')
+#     c = conn.cursor()
+#     # update文
+#     # 上記の filename 変数ここで使うよ
+#     c.execute("update user set prof_img = ? where id=?", (filename,user_id))
+#     conn.commit()
+#     conn.close()
 
-    return redirect ('/bbs')
+#     return redirect ('/bbs')
 
-#課題4の答えはここも
-def get_save_path():
-    path_dir = "./static/img"
-    return path_dir
+# #課題4の答えはここも
+# def get_save_path():
+#     path_dir = "./static/img"
+#     return path_dir
 
 
 @app.errorhandler(403)
