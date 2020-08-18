@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 import os
 # splite3をimportする
 import sqlite3
 # flaskをimportしてflaskを使えるようにする
-from flask import Flask , render_template , request , redirect , session
+from flask import Flask, render_template, request, redirect, session
 # appにFlaskを定義して使えるようにしています。Flask クラスのインスタンスを作って、 app という変数に代入しています。
 app = Flask(__name__)
 
 # Flask では標準で Flask.secret_key を設定すると、sessionを使うことができます。この時、Flask では session の内容を署名付きで Cookie に保存します。
 app.secret_key = 'sunabakoza'
 
-from datetime import datetime
 
 @app.route('/')
 def index():
@@ -19,12 +19,12 @@ def index():
 
 # GET  /register => 登録画面を表示
 # POST /register => 登録処理をする
-@app.route('/register',methods=["GET", "POST"])
+@app.route('/register', methods=["GET", "POST"])
 def register():
     #  登録ページを表示させる
     if request.method == "GET":
-        if 'user_id' in session :
-            return redirect ('/typ')
+        if 'user_id' in session:
+            return redirect('/typ')
         else:
             return render_template("register.html")
 
@@ -37,7 +37,8 @@ def register():
         conn = sqlite3.connect('service.db')
         c = conn.cursor()
         # 課題4の答えはここ
-        c.execute("insert into user values(null,?,?,'no_img.png')", (name,password))
+        c.execute("insert into user values(null,?,?,'no_img.png')",
+                  (name, password))
         conn.commit()
         conn.close()
         return redirect('/login')
@@ -48,7 +49,7 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
-        if 'user_id' in session :
+        if 'user_id' in session:
             return redirect("/typ")
         else:
             return render_template("login.html")
@@ -61,7 +62,8 @@ def login():
         # 存在するかを判定する。レコードが存在するとuser_idに整数が代入、存在しなければ nullが入る
         conn = sqlite3.connect('service.db')
         c = conn.cursor()
-        c.execute("select id from user where name = ? and password = ?", (name, password) )
+        c.execute(
+            "select id from user where name = ? and password = ?", (name, password))
         user_id = c.fetchone()
         conn.close()
         # DBから取得してきたuser_id、ここの時点ではタプル型
@@ -76,9 +78,12 @@ def login():
 
 # GET  /type => type画面を表示
 # POST /type => type処理をする
+
+
 @app.route('/typ')
 def typ():
     return render_template('type.html')
+
 
 @app.route('/menum', methods=['GET', 'POST'])
 def muki():
@@ -87,12 +92,15 @@ def muki():
 
     return res
 
+
 @app.route('/menun', methods=['GET', 'POST'])
 def natyu():
     if request.method == 'POST':
         res = render_template('menun.html')
 
     return res
+
+
 @app.route('/menua', methods=['GET', 'POST'])
 def atode():
     if request.method == 'POST':
@@ -100,11 +108,13 @@ def atode():
 
     return res
 
+
 @app.route("/logout")
 def logout():
-    session.pop('user_id',None)
+    session.pop('user_id', None)
     # ログアウト後はログインページにリダイレクトさせる
     return redirect("/login")
+
 
 @app.route('/eatm', methods=['GET', 'POST'])
 def eatm():
@@ -113,12 +123,21 @@ def eatm():
 
     return res
 
+
 @app.route('/musclem', methods=['GET', 'POST'])
 def musclem():
     if request.method == 'POST':
-        res = render_template('musclemenum.html')
 
+        # conn = sqlite3.connect('muscle.db')
+        # c = conn.cursor()
+        # c.execute("select URL from muscle where muscle_number = 2")
+        # muscle_id = c.fetchone()
+        # print(muscle_id)
+        # c.close()
+
+        res = render_template('musclemenum.html')
     return res
+
 
 @app.route('/eatn', methods=['GET', 'POST'])
 def eatn():
@@ -127,6 +146,7 @@ def eatn():
 
     return res
 
+
 @app.route('/musclen', methods=['GET', 'POST'])
 def musclen():
     if request.method == 'POST':
@@ -134,12 +154,14 @@ def musclen():
 
     return res
 
+
 @app.route('/eata', methods=['GET', 'POST'])
 def eata():
     if request.method == 'POST':
         res = render_template('eatmenua.html')
 
     return res
+
 
 @app.route('/musclea', methods=['GET', 'POST'])
 def musclea():
@@ -228,7 +250,7 @@ def musclea():
 #     # 処理終了後に一覧画面に戻す
 #     return redirect("/bbs")
 
-#課題4の答えはここ
+# 課題4の答えはここ
 # @app.route('/upload', methods=["POST"])
 # def do_upload():
 #     # bbs.tplのinputタグ name="upload" をgetしてくる
@@ -236,7 +258,7 @@ def musclea():
 #     # uploadで取得したファイル名をlower()で全部小文字にして、ファイルの最後尾の拡張子が'.png', '.jpg', '.jpeg'ではない場合、returnさせる。
 #     if not upload.filename.lower().endswith(('.png', '.jpg', '.jpeg')):
 #         return 'png,jpg,jpeg形式のファイルを選択してください'
-    
+
 #     # 下の def get_save_path()関数を使用して "./static/img/" パスを戻り値として取得する。
 #     save_path = get_save_path()
 #     # パスが取得できているか確認
@@ -247,7 +269,7 @@ def musclea():
 #     upload.save(os.path.join(save_path,filename))
 #     # ファイル名が取れることを確認、あとで使うよ
 #     print(filename)
-    
+
 #     # アップロードしたユーザのIDを取得
 #     user_id = session['user_id']
 #     conn = sqlite3.connect('service.db')
