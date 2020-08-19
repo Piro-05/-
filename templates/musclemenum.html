@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="../js/hum_menu.js"></script>
-
+    <script src="../static/js/jquery -3.31.js"></script>
 </head>
 
 <body>
@@ -43,13 +43,13 @@
         <div class="chuuouzoroe">
             <div class="content">
                 <!--SQLで動画をいれる-->
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/O_PVgq4tHuA" frameborder="0"
+                <iframe width="560" height="315" src="{{db_menuinfo[1]}}" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                    allowfullscreen></iframe> <br>
                 <!-- <img src="static/img/itomeshi.jpg" class="movie"> -->
                 <!--SQLで筋トレ名をいれる-->
                 <div class="muscle">
-                    <p>スクワット</p>
+                    <p>種目:{{db_menuinfo[0]}}</p>
                 </div>
                 <!--説明をいれる-->
                 <div class="explenation">

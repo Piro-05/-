@@ -128,14 +128,16 @@ def eatm():
 def musclem():
     if request.method == 'POST':
 
-        # conn = sqlite3.connect('muscle.db')
-        # c = conn.cursor()
-        # c.execute("select URL from muscle where muscle_number = 2")
-        # muscle_id = c.fetchone()
-        # print(muscle_id)
-        # c.close()
+        conn = sqlite3.connect('menum.db')
+        c = conn.cursor()
+        # fetchoneはタプル型
+        # user_infoの中身を確認
+        c.execute("select menu_name,menu_url from menum where menu_id = 1")
+        menu_info = c.fetchone()
+        print(menu_info)
+        c.close()
 
-        res = render_template('musclemenum.html')
+        res = render_template('musclemenum.html', db_menuinfo=menu_info)
     return res
 
 
