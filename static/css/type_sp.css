@@ -103,6 +103,7 @@ header {
     border: dashed 2px #333;
     border-color: #CDCDCF;
     color: #CDCDCF;
+    box-shadow: 0 0 4px black;
 }
 
 footer {
