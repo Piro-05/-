@@ -10,7 +10,13 @@
   <title>筋トレアプリ</title>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="../js/hum_menu.js"></script>
+  <script src="../static/js/hum_menu.js"></script>
+  <script src="../static/js/jquery -3.31.js"></script>
+  <!--モーダル-->
+  <script src="https://code.jquery.com/jquery-git.js"></script>
+  <script src="../static/js/modal.js"></script>
+  <!--達成ボタン-->
+  <script src="../static/js/btnoff.js"></script>
 </head>
 
 <body>
@@ -43,15 +49,15 @@
     <!--画像と説明-->
     <div class="content">
       <form action="/eatm" method="POST">
-      <button name="post_button" class="btn eat">
-        食事
-      </button>
+        <button name="post_button" class="btn eat" id="btn_eat'">
+          食事
+        </button>
       </form>
       <form action="/musclem" method="POST">
-      <button name="post_button" class="btn muscle">
-        筋トレ
-      </button>
-    </form>
+        <button name="post_button" class="btn muscle" id="btn_muscle">
+          筋トレ
+        </button>
+      </form>
     </div>
 
   </div>
@@ -60,7 +66,20 @@
   <footer>
     <form action="/bbs" method="POST">
       <button name="post_button" class="btn complete">
-        達成
+        <!--モーダルの部分-->
+        <a href="#modal01" class="modalOpen">達成</a>
+        <div class="modal" id="modal01">
+          <div class="overLay modalClose"></div>
+          <div class="inner">
+            <h2> Congratulation</h2>
+            <p>今日のノルマを達成しました！
+              <br>お疲れさまでした!</p>
+            <!--モーダルクローズの部分-->
+            <div class="close">
+              <a href="" class="modalClose" id="hidebtn">閉じる</a>
+            </div>
+          </div>
+        </div>
       </button>
     </form>
   </footer>
