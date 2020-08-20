@@ -16,24 +16,25 @@
 
 <body>
     <!--ヘッダの部分-->
-    <header></header>
-    <div id="wrapper">
+    <header>
+        <div id="wrapper">
 
-        <p class="btn-gnavi">
-            <span></span>
-            <span></span>
-            <span></span>
-        </p>
-        <nav id="global-navi">
-            <ul class="menu">
-                <li><a href="">プロフィールを編集</a></li>
-                <li><a href="">毎日のがんばり</a></li>
-                <li><a href="">過去の筋トレ</a></li>
-                <li><a href="">お問い合わせ</a></li>
-                <li><a href="">ログアウト</a></li>
-            </ul>
-        </nav>
-    </div>
+            <p class="btn-gnavi">
+                <span></span>
+                <span></span>
+                <span></span>
+            </p>
+            <nav id="global-navi">
+                <ul class="menu">
+                    <li><a href="">プロフィールを編集</a></li>
+                    <li><a href="">毎日のがんばり</a></li>
+                    <li><a href="">過去の筋トレ</a></li>
+                    <li><a href="">お問い合わせ</a></li>
+                    <li><a href="">ログアウト</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!--ヘッダのした部分-->
     <div class="main">
@@ -44,9 +45,13 @@
         <div class="chuuouzoroe">
             <div class="content">
                 <!--SQLで動画をいれる-->
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/O_PVgq4tHuA" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                <div class="video">
+                    <iframe width="560" height="315" src="https://youtube.com/embed/O_PVgq4tHuA" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                        class="movie"></iframe>
+                </div>
+
+
                 <!-- <img src="static/img/itomeshi.jpg" class="movie"> -->
                 <!--SQLで筋トレ名をいれる-->
                 <div class="muscle">
