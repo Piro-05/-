@@ -132,7 +132,8 @@ def musclem():
         c = conn.cursor()
         # fetchoneはタプル型
         # user_infoの中身を確認
-        c.execute("select menu_name,menu_url from menum where menu_id = 1")
+        c.execute(
+            "select menu_name,menu_url from menum WHERE menu_id ORDER BY RANDOM() LIMIT 3")
         menu_info = c.fetchone()
         print(menu_info)
         c.close()
@@ -152,7 +153,16 @@ def eatn():
 @app.route('/musclen', methods=['GET', 'POST'])
 def musclen():
     if request.method == 'POST':
-        res = render_template('musclemenun.html')
+        conn = sqlite3.connect('menun.db')
+        c = conn.cursor()
+        # fetchoneはタプル型
+        # user_infoの中身を確認
+        c.execute(
+            "select menu_name,menu_url from menun WHERE menu_id ORDER BY RANDOM() LIMIT 3")
+        menu_info = c.fetchone()
+        print(menu_info)
+        c.close()
+        res = render_template('musclemenun.html', db_menuinfon=menu_info)
 
     return res
 
