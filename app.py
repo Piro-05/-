@@ -152,7 +152,15 @@ def musclem():
 @app.route('/eatn', methods=['GET', 'POST'])
 def eatn():
     if request.method == 'POST':
-        res = render_template('eatmenun.html')
+
+        conn = sqlite3.connect('eatmenun.db')
+        c = conn.cursor()
+        c.execute(
+            "select menu_name,menu_url,menu_exp from eatmenun WHERE menu_id ORDER BY RANDOM() LIMIT 3")
+        menu_info = c.fetchone()
+        print(menu_info)
+        c.close()
+        res = render_template('eatmenun.html', db_eatinfo=menu_info)
 
     return res
 
