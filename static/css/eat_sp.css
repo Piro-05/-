@@ -230,3 +230,16 @@ footer {
 .backhome p {
     font-size: 18px;
 }
+
+
+/******LOGO********/
+
+.logo {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+}
+
+.log p {
+    font-size: 36px;
+}
