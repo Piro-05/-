@@ -145,120 +145,72 @@ a {
 /* .twitter {
     background-color: #55acee;
   } */
-<<<<<<< HEAD
-  
-  .btn {
-    padding: 33px 138px;
-    color:#3D404D;
-    display: inline-block;
-    /* opacity: 0.8; */
-    border-radius: 32px;
-    margin :31px;
-  }
-  
-  .btn:hover {
-    opacity: 1;
-  }
-  
-  /* .fa {
-    margin-right: 5px;
-  } */
-  
-  header {
-    height: 65px;
-    width: 100%;
-    background-color:#EFEEF5;
-    /* positionプロパティをfixedに、topを0に指定してください */
-    position:fixed;
-    top:0px;
-    /* z-indexを10に指定してください */
-    z-index:10;
-  }
-  
-  .logo {
-    width: 124px;
-    margin-top: 20px;
-    margin-left: 440px;
-  }
-  
-  .header-left {
-    float: left;
-  }
-  
-  .hum_menu{
-    float: right;
-    background-color: rgba(255, 255, 255, 0.3);
-    transition: all 0.5s;
-  }
-  
-  .header-right:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .header-right a {
-    line-height: 65px;
-    padding: 0 25px;
-    color: white;
-    display: block;
-  }
-
-  button {
-    background-color: #EFEEF5;
-    width: 316px;
-    height: 85px;
-    border-radius: 28px;
-    text-align: center;
-    margin-bottom: 30px;
-    display: block;
-}
-=======
 
 .btn {
-  /*padding: 33px 138px;*/
-  width: 316px;
-  height: 85px;
+  padding: 33px 138px;
   color: #3D404D;
   display: inline-block;
   /* opacity: 0.8; */
   border-radius: 32px;
-  margin: 31px 31px 0 31px;
-  display: flex;
-  justify-content: center;
-  /*左右中央揃え*/
-  align-items: center;
-
-}
-
-.btn-wrapper {
-  display: flex;
-  justify-content: center;
-  /*左右中央揃え*/
-  align-items: center;
-  flex-direction: column;
+  margin: 31px;
 }
 
 .btn:hover {
   opacity: 1;
 }
 
-.fa {
-  margin-right: 5px;
-}
+/* .fa {
+    margin-right: 5px;
+  } */
 
 header {
-  height: 71px;
+  height: 65px;
   width: 100%;
   background-color: #EFEEF5;
   /* positionプロパティをfixedに、topを0に指定してください */
-  position: fixe;
+  position: fixed;
   top: 0px;
   /* z-indexを10に指定してください */
   z-index: 10;
 }
 
+.logo {
+  width: 124px;
+  margin-top: 20px;
+  margin-left: 440px;
+}
 
+.header-left {
+  float: left;
+}
 
->>>>>>> 0951da26d8288fc609e001ceb124c54c12a837f3
+.hum_menu {
+  float: right;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.5s;
+}
+
+.header-right:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.header-right a {
+  line-height: 65px;
+  padding: 0 25px;
+  color: white;
+  display: block;
+}
+
+button {
+  background-color: #EFEEF5;
+  width: 316px;
+  height: 85px;
+  border-radius: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+  display: block;
+}
+
 /*   
   .lesson-wrapper {
     height: 500px;

@@ -140,7 +140,7 @@ def musclem():
         # fetchoneはタプル型
         # user_infoの中身を確認
         c.execute(
-            "select menu_name,menu_url from menum WHERE menu_id ORDER BY RANDOM() LIMIT 3")
+            "select menu_name,menu_url,menu_exp from menum WHERE menu_id ORDER BY RANDOM() LIMIT 3")
         menu_info = c.fetchone()
         print(menu_info)
         c.close()
@@ -171,7 +171,7 @@ def musclen():
         conn = sqlite3.connect('menun.db')
         c = conn.cursor()
         c.execute(
-            "select menu_name,menu_url from menun WHERE menu_id ORDER BY RANDOM() LIMIT 3")
+            "select menu_name,menu_url,menu_exp from menun WHERE menu_id ORDER BY RANDOM() LIMIT 3")
         menu_info = c.fetchone()
         print(menu_info)
         c.close()
