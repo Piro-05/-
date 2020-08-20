@@ -119,7 +119,14 @@ def logout():
 @app.route('/eatm', methods=['GET', 'POST'])
 def eatm():
     if request.method == 'POST':
-        res = render_template('eatmenum.html')
+        conn = sqlite3.connect('eatmenum.db')
+        c = conn.cursor()
+        c.execute(
+            "select menu_name,menu_url,menu_exp from eatmenum WHERE menu_id ORDER BY RANDOM() LIMIT 3")
+        menu_info = c.fetchone()
+        print(menu_info)
+        c.close()
+        res = render_template('eatmenum.html', db_eatinfo=menu_info)
 
     return res
 
@@ -155,8 +162,6 @@ def musclen():
     if request.method == 'POST':
         conn = sqlite3.connect('menun.db')
         c = conn.cursor()
-        # fetchoneはタプル型
-        # user_infoの中身を確認
         c.execute(
             "select menu_name,menu_url from menun WHERE menu_id ORDER BY RANDOM() LIMIT 3")
         menu_info = c.fetchone()
