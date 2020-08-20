@@ -12,21 +12,21 @@ app = Flask(__name__)
 app.secret_key = 'sunabakoza'
 
 
-@app.route('/')
-def index():
-    return render_template('type.html')
+#@app.route('/')
+#def index():
+#    return render_template('type.html')
 
 
 # GET  /register => 登録画面を表示
 # POST /register => 登録処理をする
-@app.route('/register', methods=["GET", "POST"])
+@app.route('/', methods=["GET", "POST"])
 def register():
     #  登録ページを表示させる
     if request.method == "GET":
         if 'user_id' in session:
             return redirect('/typ')
         else:
-            return render_template("register.html")
+            return render_template("/register.html")
 
     # ここからPOSTの処理
     else:
@@ -49,8 +49,10 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
+        #含まれる場合
         if 'user_id' in session:
             return redirect("/typ")
+        #含まれない場合
         else:
             return render_template("login.html")
     else:
