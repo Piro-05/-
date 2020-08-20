@@ -88,7 +88,15 @@ def typ():
 @app.route('/menum', methods=['GET', 'POST'])
 def muki():
     if request.method == 'POST':
-        res = render_template('menum.html')
+        conn = sqlite3.connect('service.db')
+        c = conn.cursor()
+        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
+        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
+        c.execute("select name,prof_img from user where id ")
+        user_info = c.fetchone()
+        print(user_info)
+        c.close()
+        res = render_template('menum.html' ,user_info = user_info)
 
     return res
 
@@ -96,7 +104,15 @@ def muki():
 @app.route('/menun', methods=['GET', 'POST'])
 def natyu():
     if request.method == 'POST':
-        res = render_template('menun.html')
+        conn = sqlite3.connect('service.db')
+        c = conn.cursor()
+        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
+        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
+        c.execute("select name,prof_img from user where id ")
+        user_info = c.fetchone()
+        print(user_info)
+        c.close()
+        res = render_template('menun.html',user_info = user_info)
 
     return res
 
@@ -104,8 +120,15 @@ def natyu():
 @app.route('/menua', methods=['GET', 'POST'])
 def atode():
     if request.method == 'POST':
-        res = render_template('menua.html')
-
+        conn = sqlite3.connect('service.db')
+        c = conn.cursor()
+        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
+        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
+        c.execute("select name,prof_img from user where id ")
+        user_info = c.fetchone()
+        print(user_info)
+        c.close()
+        res = render_template('menua.html' ,user_info = user_info)
     return res
 
 
