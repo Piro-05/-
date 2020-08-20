@@ -15,6 +15,9 @@
   <!--モーダル-->
   <script src="https://code.jquery.com/jquery-git.js"></script>
   <script src="../static/js/modal.js"></script>
+
+  <!--達成ボタン-->
+  <script src="../static/js/btnoff.js"></script>
 </head>
 
 <body>
@@ -45,12 +48,12 @@
     <!--画像と説明-->
     <div class="content">
       <form action="/eata" method="POST">
-        <button name="post_button" class="btn eat">
+        <button name="post_button" class="btn eat" id="btn_eat">
           食事
         </button>
       </form>
       <form action="/musclea" method="POST">
-        <button name="post_button" class="btn muscle">
+        <button name="post_button" class="btn muscle" id="btn_muscle">
           筋トレ
         </button>
       </form>
@@ -72,7 +75,7 @@
               <br>お疲れさまでした!</p>
             <!--モーダルクローズの部分-->
             <div class="close">
-              <a href="" class="modalClose">閉じる</a>
+              <a href="" class="modalClose" id="hidebtn">閉じる</a>
             </div>
           </div>
         </div>
