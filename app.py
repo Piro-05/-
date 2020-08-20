@@ -26,7 +26,7 @@ def register():
         if 'user_id' in session:
             return redirect('/typ')
         else:
-            return render_template("/register.html")
+            return render_template("register.html")
 
     # ここからPOSTの処理
     else:
