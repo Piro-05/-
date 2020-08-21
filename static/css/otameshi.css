@@ -223,6 +223,7 @@ a {
     width: 200px;
     text-align: center;
     color: #fff;
+    background: #E79578;
     text-decoration: none;
     padding: 15px 0;
     border-radius: 28px;
@@ -255,7 +256,7 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #EFEEF5;
+    background: #fff;
     padding: 20px;
     border-radius: 28px;
 }
@@ -277,8 +278,7 @@ p {
 }
 
 .close {
-    background: #E79578;
-    border-radius: 28px;
+    display: flex;
 }
 
 @keyframes modal {
