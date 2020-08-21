@@ -70,3 +70,15 @@ form {
     height: 61pt;
     background-color: #e79578;
 }
+
+p {
+    font-family: HGGothicM;
+    font-weight: 100;
+    font-size: 32px;
+    text-align: center;
+    color: #EFEEF5;
+    position: absolute;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    margin-top: 40px;
+}
