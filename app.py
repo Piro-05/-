@@ -96,7 +96,7 @@ def muki():
         user_info = c.fetchone()
         print(user_info)
         c.close()
-        res = render_template('menum.html' ,user_info = user_info)
+        res = render_template('menum.html', user_info=user_info)
 
     return res
 
@@ -112,7 +112,7 @@ def natyu():
         user_info = c.fetchone()
         print(user_info)
         c.close()
-        res = render_template('menun.html',user_info = user_info)
+        res = render_template('menun.html', user_info=user_info)
 
     return res
 
@@ -128,7 +128,7 @@ def atode():
         user_info = c.fetchone()
         print(user_info)
         c.close()
-        res = render_template('menua.html' ,user_info = user_info)
+        res = render_template('menua.html', user_info=user_info)
     return res
 
 
