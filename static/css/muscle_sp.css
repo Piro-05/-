@@ -190,6 +190,16 @@ header {
     margin-bottom: 20px;
 }
 
+.video {
+    width: 100%;
+    /*横幅いっぱいにwidthを指定*/
+    padding-bottom: 56.25%;
+    /*高さをpaddingで指定(16:9)*/
+    height: 0px;
+    /*高さはpaddingで指定するためheightは0に*/
+    position: relative;
+}
+
 .muscle p {
     font-size: 18px;
     font-family: HGGothicM;
