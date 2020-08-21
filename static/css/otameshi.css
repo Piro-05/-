@@ -189,6 +189,7 @@ header {
     text-align: center;
     margin-bottom: 30px;
     display: block;
+    font-size: 18px;
 }
 
 .complete {
@@ -200,7 +201,6 @@ header {
     justify-content: center;
     /*左右中央揃え*/
     align-items: center;
-
 }
 
 footer {
@@ -274,6 +274,7 @@ h2 {
 
 p {
     color: #3D404D;
+    font-size: 14px;
 }
 
 .close {
@@ -298,4 +299,17 @@ p {
     100% {
         top: 100%
     }
+}
+
+/**************/
+
+.logo {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+.logo p {
+    font-size: 36px;
 }
